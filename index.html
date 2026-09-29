@@ -72,6 +72,26 @@ section{margin-top:58px;scroll-margin-top:24px;}
 .card h3{font-family:'Noto Serif TC',serif;font-size:16.5px;font-weight:700;color:var(--green);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
 .card h3 .dot{width:9px;height:9px;border-radius:50%;background:var(--amber);flex:none;}
  .card ul,.card ol{padding-left:24px;margin:10px 0;}
+.ten-types{
+  padding:0;margin:6px 0 12px;list-style:none;
+  display:grid;grid-template-columns:1fr 1fr;gap:8px 28px;
+}
+.ten-types li{
+  display:flex;align-items:baseline;gap:10px;
+  padding:8px 12px;background:#FBF9F2;border:1px solid var(--line);border-radius:7px;
+  font-size:14.5px;
+}
+.ten-types li::before{
+  content:attr(data-n);flex:none;width:22px;height:22px;border-radius:50%;
+  background:var(--green);color:#fff;font-weight:700;font-size:12.5px;
+  display:inline-flex;align-items:center;justify-content:center;transform:translateY(2px);
+}
+.step{grid-template-columns:150px 1fr 90px;position:relative;}
+.step-sal{
+  grid-column:1 / -1;text-align:right;font-size:12px;color:var(--muted);
+  margin-top:-4px;padding-right:2px;font-weight:500;
+}
+
  .card li{margin:8px 0;}
  .card p{margin:10px 0;}
 .hl{color:var(--red);font-weight:700;}
@@ -230,7 +250,19 @@ section{margin-top:58px;scroll-margin-top:24px;}
 
   <div class="card">
     <h3><span class="dot"></span>哪些所得要課？十大類所得</h3>
-    <p>營利所得、執行業務所得、薪資所得、利息所得、租賃及權利金所得、自力耕作漁牧林礦所得、財產交易所得、競技競賽及機會中獎所得、退職所得、其他所得。<b class="hl">多數上班族的來源是「薪資所得」＋「利息／股利」。</b></p>
+    <ol class="ten-types">
+      <li data-n="1">營利所得</li>
+      <li data-n="2">執行業務所得</li>
+      <li data-n="3">薪資所得</li>
+      <li data-n="4">利息所得</li>
+      <li data-n="5">租賃及權利金所得</li>
+      <li data-n="6">自力耕作、漁、牧、林、礦所得</li>
+      <li data-n="7">財產交易所得</li>
+      <li data-n="8">競技、競賽及機會中獎所得</li>
+      <li data-n="9">退職所得</li>
+      <li data-n="10">其他所得</li>
+    </ol>
+    <div class="fact"><span class="mark">✓</span><span>多數上班族的來源是「<b>③薪資所得</b>」＋「<b>④利息所得／股利</b>」，報稅時最常出現的就是這兩類。</span></div>
   </div>
 
   <div class="card">
@@ -246,13 +278,13 @@ section{margin-top:58px;scroll-margin-top:24px;}
   <div class="card">
     <h3><span class="dot"></span>累進稅級距（依「綜合所得淨額」，不是年薪！）</h3>
     <div class="ladder">
-      <div class="step"><span class="range">0 ～ 610,000</span><div class="bar-wrap"><div class="bar lg" style="width:24%">0–61 萬</div></div><span class="rate">5%</span></div>
-      <div class="step"><span class="range">610,001 ～ 1,380,000</span><div class="bar-wrap"><div class="bar lg2" style="width:48%">61–138 萬</div></div><span class="rate">12%</span></div>
-      <div class="step"><span class="range">1,380,001 ～ 2,770,000</span><div class="bar-wrap"><div class="bar lg3" style="width:70%">138–277 萬</div></div><span class="rate">20%</span></div>
-      <div class="step"><span class="range">2,770,001 ～ 5,190,000</span><div class="bar-wrap"><div class="bar lg4" style="width:86%">277–519 萬</div></div><span class="rate">30%</span></div>
-      <div class="step"><span class="range">5,190,001 以上</span><div class="bar-wrap"><div class="bar lg5" style="width:100%">519 萬以上</div></div><span class="rate">40%</span></div>
+      <div class="step"><span class="range">0 ～ 610,000</span><div class="bar-wrap"><div class="bar lg" style="width:24%">0–61 萬</div></div><span class="rate">5%</span><div class="step-sal">月薪約 3.9–8.9 萬</div></div>
+      <div class="step"><span class="range">610,001 ～ 1,380,000</span><div class="bar-wrap"><div class="bar lg2" style="width:48%">61–138 萬</div></div><span class="rate">12%</span><div class="step-sal">月薪約 8.9–15.4 萬</div></div>
+      <div class="step"><span class="range">1,380,001 ～ 2,770,000</span><div class="bar-wrap"><div class="bar lg3" style="width:70%">138–277 萬</div></div><span class="rate">20%</span><div class="step-sal">月薪約 15.4–26.9 萬</div></div>
+      <div class="step"><span class="range">2,770,001 ～ 5,190,000</span><div class="bar-wrap"><div class="bar lg4" style="width:86%">277–519 萬</div></div><span class="rate">30%</span><div class="step-sal">月薪約 26.9–47.1 萬</div></div>
+      <div class="step"><span class="range">5,190,001 以上</span><div class="bar-wrap"><div class="bar lg5" style="width:100%">519 萬以上</div></div><span class="rate">40%</span><div class="step-sal">月薪約 47.1 萬以上</div></div>
     </div>
-    <p class="legend">累進差額：5%→0 ｜ 12%→42,700 ｜ 20%→153,100 ｜ 30%→430,100 ｜ 40%→949,100。超過門檻的部分才用較高稅率。</p>
+    <p class="legend">累進差額：5%→0 ｜ 12%→42,700 ｜ 20%→153,100 ｜ 30%→430,100 ｜ 40%→949,100。超過門檻的部分才用較高稅率。月薪換算以「單身、無扶養、僅薪資」為例（可扣減 464,000）推估，僅供概略參考。</p>
   </div>
 
   <div class="card">
@@ -497,7 +529,22 @@ section{margin-top:58px;scroll-margin-top:24px;}
   </div>
 
   <div class="card">
-    <h3><span class="dot"></span>健保一般保費</h3>
+    <h3><span class="dot"></span>先講清楚：「健保」與「二代健保」到底是什麼關係</h3>
+    <p>「健保」和「二代健保」<b class="hl">不是兩套保險</b>，而是<b class="ok">同一個全民健康保險、兩種收費方式</b>——都是為了「看病醫療」這同一個目的，只是<b>收錢的對象與方式不同</b>：</p>
+    <table class="tbl">
+      <colgroup><col style="width:22%"><col style="width:39%"><col style="width:39%"></colgroup>
+      <tr><th></th><th>健保一般保費（5.17%）</th><th>二代健保補充保費（2.11%）</th></tr>
+      <tr><td><b>收的是誰</b></td><td>抓「<b>薪水收入</b>」（依投保薪資）</td><td>抓「<b>薪水以外</b>的所得」（獎金、股利、利息、租金等）</td></tr>
+      <tr><td><b>怎麼收</b></td><td>按月由薪資中扣（投保薪資 × 費率 × 自付比例）</td><td>發放當下「就源扣繳」直接扣走</td></tr>
+      <tr><td><b>誰在扣</b></td><td>公司隨月薪扣繳</td><td>券商、銀行、雇主、房客等「給付者」代扣</td></tr>
+      <tr><td><b>年度結算？</b></td><td>跟著投保身分、每月計算</td><td>看「單筆」是否達門檻，年度不結算、不退</td></tr>
+      <tr><td><b>簡單記</b></td><td>你有薪水 → 每月繳</td><td>你有「薪水外的錢」且單筆夠多 → 另扣一筆</td></tr>
+    </table>
+    <div class="fact"><span class="mark">✓</span><span>一句話：<b>健保一般保費管你的薪水，二代健保補充保費管你薪水以外的收入</b>。兩者加起來，才是你對「健保」這個保險的總負擔。</span></div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot"></span>健保一般保費（管你的「薪水」）</h3>
     <ul>
       <li>費率 <b class="hl">5.17%</b>；受僱勞工自付 30%、雇主 60%、政府 10%</li>
       <li>自付額 ＝ 投保薪資 × 5.17% × 30% ×（1＋眷屬人數）；眷屬最多算 3 位</li>
@@ -506,7 +553,7 @@ section{margin-top:58px;scroll-margin-top:24px;}
   </div>
 
   <div class="card">
-    <h3><span class="dot"></span>補充保費 2.11%：抓薪水以外的所得</h3>
+    <h3><span class="dot"></span>二代健保補充保費 2.11%（管你「薪水以外」的所得）</h3>
     <p>一般保費只以「投保薪資」計算，抓不到薪水外收入；補充保費課徵下列所得，<b class="hl">就源扣繳、年度不結算、≠所得稅</b>。</p>
     <table class="tbl">
       <colgroup><col style="width:52%"><col style="width:24%"><col style="width:24%"></colgroup>
