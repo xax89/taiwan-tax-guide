@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台灣上班族稅務與勞健保知識地圖</title>
+<link rel="preconnect" href="https://miaoda.feishu.cn">
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%232E4A3F'/%3E%3Ctext x='50' y='66' font-size='52' text-anchor='middle' fill='%23E9D8A6' font-family='serif' font-weight='700'%3E台%3C/text%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#2A2E2A;
+  --paper:#F7F3E9;
+  --card:#FFFFFF;
+  --green:#2E4A3F;
+  --green-deep:#1E332B;
+  --amber:#C8953D;
+  --amber-soft:#E9D8A6;
+  --red:#A65032;
+  --red-soft:#F4E0D3;
+  --line:#E2DAC6;
+  --muted:#6B6F66;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Noto Sans TC',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  line-height:1.85;
+  font-size:16px;
+}
+.wrap{max-width:1020px;margin:0 auto;padding:0 22px 90px;}
+/* ===== Hero ===== */
+.hero{
+  background:var(--green-deep);
+  color:#F3EEDF;
+  padding:64px 24px 46px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(1200px 300px at 50% -60px, rgba(201,149,61,.35), transparent 60%);
+}
+.hero .kicker{
+  font-size:13px;letter-spacing:.28em;color:var(--amber);text-transform:none;
+  font-weight:500;margin-bottom:14px;position:relative;z-index:1;
+}
+.hero h1{
+  font-family:'Noto Serif TC',serif;font-size:clamp(26px,5vw,40px);font-weight:900;
+  line-height:1.35;position:relative;z-index:1;
+}
+.hero p.sub{
+  max-width:640px;margin:18px auto 0;font-size:15px;color:#CFC7AF;
+  font-weight:300;position:relative;z-index:1;
+}
+/* ===== 章節 ===== */
+section{margin-top:52px;}
+.sec-head{display:flex;align-items:baseline;gap:14px;border-bottom:2px solid var(--green);padding-bottom:8px;margin-bottom:22px;}
+.sec-num{
+  font-family:'Noto Serif TC',serif;font-weight:900;font-size:22px;color:var(--amber);
+  white-space:nowrap;
+}
+.sec-title{font-family:'Noto Serif TC',serif;font-size:clamp(19px,3vw,24px);font-weight:700;}
+.sec-sub{font-size:13px;color:var(--muted);margin-top:2px;}
+/* ===== 卡片 ===== */
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin-bottom:16px;}
+.card h3{
+  font-family:'Noto Serif TC',serif;font-size:17px;font-weight:700;color:var(--green);
+  margin-bottom:12px;display:flex;align-items:center;gap:8px;
+}
+.card h3 .dot{width:9px;height:9px;border-radius:50%;background:var(--amber);flex:none;}
+.card ul,.card ol{padding-left:22px;margin:8px 0;}
+.card li{margin:6px 0;}
+.card p{margin:8px 0;}
+.hl{color:var(--red);font-weight:700;}
+.ok{color:var(--green);font-weight:700;}
+/* ===== 公式 ===== */
+.formula{
+  background:var(--green);color:#F3EEDF;border-radius:12px;padding:22px 26px;
+  font-family:'Noto Serif TC',serif;font-weight:700;text-align:center;margin:18px 0;
+  line-height:1.9;
+}
+.formula .f1{color:var(--amber);font-size:14px;letter-spacing:.1em;display:block;margin-bottom:8px;font-weight:500;}
+/* ===== 表格 ===== */
+.tbl{width:100%;border-collapse:collapse;margin:14px 0;table-layout:fixed;font-size:14.5px;}
+.tbl th,.tbl td{border:1px solid var(--line);padding:10px 12px;vertical-align:top;text-align:left;word-break:break-word;}
+.tbl th{background:var(--green);color:#F3EEDF;font-weight:500;}
+.tbl tr:nth-child(even) td{background:#FBF9F2;}
+.tbl .num{font-variant-numeric:tabular-nums;font-weight:700;color:var(--green);}
+.numb{font-weight:800;font-variant-numeric:tabular-nums;}
+.tbl .warn{color:var(--red);font-weight:700;}
+/* ===== 累進階梯 ===== */
+.ladder{margin:18px 0;}
+.step{display:grid;grid-template-columns:150px 1fr 120px;align-items:center;gap:12px;margin-bottom:8px;}
+.step .range{font-weight:700;color:var(--ink);font-size:14.5px;text-align:right;}
+.step .bar-wrap{position:relative;height:34px;background:#EEE7D5;border-radius:6px;overflow:visible;}
+.step .bar{position:absolute;left:0;top:0;bottom:0;border-radius:6px;display:flex;align-items:center;padding-left:10px;color:#fff;font-weight:700;font-size:13.5px;}
+.step .rate{font-weight:700;color:var(--amber);font-size:14px;text-align:center;}
+.lg{background:#3A6B58;}
+.lg2{background:#4E7E67;}
+.lg3{background:#6B9579;}
+.lg4{background:#A78B4E;}
+.lg5{background:#B0603C;}
+.legend{font-size:13px;color:var(--muted);margin-top:6px;}
+/* ===== 對照/兩欄 ===== */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:700px){.grid2{grid-template-columns:1fr;}}
+.mini-card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px 20px;}
+.mini-card h4{font-family:'Noto Serif TC',serif;font-size:15.5px;font-weight:700;color:var(--green);margin-bottom:8px;}
+.mini-card .big{font-size:30px;font-weight:900;font-family:'Noto Serif TC',serif;color:var(--amber);line-height:1.2;}
+.mini-card .cap{font-size:12.5px;color:var(--muted);margin-top:2px;}
+/* ===== 流程 ===== */
+.flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap;margin:16px 0;}
+.fnode{flex:1;min-width:150px;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:8px;padding:14px 16px;position:relative;}
+.fnode .n{font-weight:700;color:var(--green);font-size:14.5px;}
+.fnode .d{font-size:12.5px;color:var(--muted);margin-top:4px;}
+.farrow{align-self:center;color:var(--amber);font-size:20px;padding:0 6px;font-weight:700;}
+/* ===== 迷思 ===== */
+.myth{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;background:var(--red-soft);border-left:4px solid var(--red);border-radius:6px;margin:10px 0;}
+.myth .mark{color:var(--red);font-weight:900;flex:none;}
+.fact{display:flex;gap:10px;align-items:flex-start;padding:12px 14px;background:#E7EFEA;border-left:4px solid var(--green);border-radius:6px;margin:10px 0;}
+.fact .mark{color:var(--green);font-weight:900;flex:none;}
+/* ===== 總結 ===== */
+.summary-box{background:var(--green-deep);color:#F3EEDF;border-radius:14px;padding:30px 30px 26px;margin-top:60px;}
+.summary-box h2{font-family:'Noto Serif TC',serif;font-size:22px;margin-bottom:16px;color:var(--amber-soft);}
+.summary-box ul{padding-left:20px;}
+.summary-box li{margin:10px 0;font-size:15px;}
+.summary-box b{color:var(--amber-soft);}
+.note{font-size:12.5px;color:var(--muted);margin-top:14px;text-align:center;line-height:1.7;}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="kicker">TAIWAN · 2026 年度</div>
+  <h1>台灣上班族稅務與勞健保知識地圖</h1>
+  <p class="sub">從綜所稅、勞保健保、勞退 6%，到股利利息的二代健保補充保費——一份把「錢是怎麼被扣走、又能怎麼省」講清楚的完整筆記。</p>
+</div>
+
+<div class="wrap">
+
+<!-- ===================== 01 綜合所得稅 ===================== -->
+<section>
+  <div class="sec-head">
+    <span class="sec-num">01</span>
+    <div>
+      <div class="sec-title">綜合所得稅：年薪決定的不是稅率，是「應稅所得」</div>
+      <div class="sec-sub">每年 5 月申報上一年度（1–12 月）所得 · 家戶申報制</div>
+    </div>
+  </div>
+
+  <div class="formula">
+    <span class="f1">核心公式</span>
+    綜合所得淨額 ＝ 全年總所得 － 免稅額 － 扣除額（標準／列舉二擇一） － 各項特別扣除額<br>
+    應納稅額 ＝ 綜合所得淨額 × 稅率 － 累進差額
+  </div>
+
+  <div class="card">
+    <h3><span class="dot"></span>115 年度（116 年 5 月申報）基本數字</h3>
+    <ul>
+      <li>免稅額：本人／配偶／扶養親屬每人 <b class="hl">101,000 元</b>；滿 70 歲直系尊親屬 <b class="hl">151,500 元</b></li>
+      <li>標準扣除額：單身 <b class="hl">136,000 元</b> ｜ 夫妻合報 <b class="hl">272,000 元</b></li>
+      <li>薪資所得特別扣除額：每人 <b class="hl">227,000 元</b>（薪資不到 22.7 萬就全額扣除）</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot"></span>累進稅級距（依「綜合所得淨額」，不是年薪！）</h3>
+    <div class="ladder">
+      <div class="step"><span class="range">0 ～ 610,000</span><div class="bar-wrap"><div class="bar lg" style="width:24%">0–61 萬</div></div><span class="rate">5%</span></div>
+      <div class="step"><span class="range">610,001 ～ 1,380,000</span><div class="bar-wrap"><div class="bar lg2" style="width:48%">61–138 萬</div></div><span class="rate">12%</span></div>
+      <div class="step"><span class="range">1,380,001 ～ 2,770,000</span><div class="bar-wrap"><div class="bar lg3" style="width:70%">138–277 萬</div></div><span class="rate">20%</span></div>
+      <div class="step"><span class="range">2,770,001 ～ 5,190,000</span><div class="bar-wrap"><div class="bar lg4" style="width:86%">277–519 萬</div></div><span class="rate">30%</span></div>
+      <div class="step"><span class="range">5,190,001 以上</span><div class="bar-wrap"><div class="bar lg5" style="width:100%">519 萬以上</div></div><span class="rate">40%</span></div>
+    </div>
+    <p class="legend">累進差額：5%→0 ｜ 12%→42,700 ｜ 20%→153,100 ｜ 30%→430,100 ｜ 40%→949,100。超過門檻的部分才用較高稅率，不是全部所得跳稅率。</p>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot"></span>月薪／年薪高低實際影響什麼</h3>
+    <table class="tbl">
+      <colgroup><col style="width:22%"><col style="width:78%"></colgroup>
+      <tr><th>項目</th><th>年薪越高，會發生什麼</th></tr>
+      <tr><td>每月薪資扣繳</td><td>公司依「月薪 + 申報扶養人數」每月預扣所得稅；月薪越高、預扣越多。這只是預繳，隔年 5 月多退少補。</td></tr>
+      <tr><td>應納稅額</td><td>所得淨額落入越高級距，邊際稅率越高（但採累進，非全額）。</td></tr>
+      <tr><td>勞保／健保／勞退</td><td>依「投保／提繳薪資級距」計費，<b class="warn">不是實領月薪</b>，且有各自上限（見 02 節）。</td></tr>
+      <tr><td>補助與扣除資格</td><td>所得太高會失去幼兒學前、長照等特別扣除，以及低收／中低收、租金補貼等社會福利資格。</td></tr>
+      <tr><td>最低稅負制</td><td>全家基本所得合計超過 750 萬才觸發（一般上班族很少碰到）。</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot"></span>舉例：單身、僅薪資、無扶養（115 年）</h3>
+    <p>可扣減合計 ＝ 免稅額 101,000 ＋ 標準扣除 136,000 ＋ 薪資特別扣除 227,000 ＝ <b>464,000 元</b></p>
+    <table class="tbl">
+      <colgroup><col style="width:30%"><col style="width:36%"><col style="width:34%"></colgroup>
+      <tr><th>年薪（月薪）</th><th>所得淨額</th><th>應納稅額</th></tr>
+      <tr><td>464,000 以下（≈月薪 38.6k）</td><td>≦ 0</td><td class="ok">不用繳綜所稅（公司仍會預扣，5 月退稅）</td></tr>
+      <tr><td>600,000（月薪 5 萬）</td><td>136,000</td><td>136,000 × 5% ＝ <span class="num">6,800 元</span></td></tr>
+      <tr><td>1,000,000（月薪 ≈8.3 萬）</td><td>536,000</td><td>536,000 × 5% ＝ <span class="num">26,800 元</span></td></tr>
+      <tr><td>1,200,000（月薪 10 萬）</td><td>736,000</td><td>736,000 × 12% － 42,700 ＝ <span class="num">45,620 元</span></td></tr>
+    </table>
+    <div class="fact"><span class="mark">✓</span><span>很多人誤以為「年薪破百萬＝全部 12%」；實際是超過 61 萬淨額的部分才用 12%。</span></div>
+  </div>
+</section>
+
+<!-- ===================== 02 勞保 健保 勞退 ===================== -->
+<section>
+  <div class="sec-head">
+    <span class="sec-num">02</span>
+    <div>
+      <div class="sec-title">勞保、健保、勞退新制：三套獨立系統</div>
+      <div class="sec-sub">都不是所得稅，卻都看「投保／提繳薪資級距」——重點在三個不同的上限</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot"></span>三套系統對照</h3>
+    <table class="tbl">
+      <colgroup><col style="width:20%"><col style="width:20%"><col style="width:16%"><col style="width:44%"></colgroup>
+      <tr><th>項目</th><th>性質</th><th>薪資上限</th><th>重點</th></tr>
+      <tr><td>勞保（含就業保險）</td><td>社會保險（現收現付年金制）</td><td class="num">45,800</td><td>老年年金、失能、生育、失業給付；費率 12.5%，雇主 70%／勞工 20%／政府 10%。</td></tr>
+      <tr><td>健保一般保費</td><td>醫療保險</td><td class="num">313,000</td><td>可加眷屬（最多 3 位）；費率 5.17%，受僱勞工自付 30%。</td></tr>
+      <tr><td>勞退新制</td><td>個人專戶退休金（錢屬於你）</td><td class="num">150,000</td><td>雇主強制提撥 6% ＋ 勞工可自願自提 0–6%（可抵綜所稅）。</td></tr>
+    </table>
+    <div class="fact"><span class="mark">✓</span><span>同一份月薪，勞保只算到 45,800、健保算到更高、勞退算到 15 萬——三種上限完全不同，別搞混。</span></div>
+  </div>
+
+  <div class="grid2">
+    <div class="mini-card">
+      <h4>勞保（勞工保險）</h4>
+      <div class="big">12.5%</div>
+      <div class="cap">115 年費率 · 勞工自付 20%</div>
+      <ul style="font-size:14px;margin-top:10px;padding-left:20px;">
+        <li>月繳自付額 ＝ 投保薪資級距 × 12.5% × 20%</li>
+        <li>投保級距下限＝基本工資 29,500</li>
+        <li>上限 <b>45,800</b>：超過不增保費，老年年金給付也以此為上限</li>
+      </ul>
+    </div>
+    <div class="mini-card">
+      <h4>健保（全民健保）</h4>
+      <div class="big">5.17%</div>
+      <div class="cap">受僱勞工自付 30%</div>
+      <ul style="font-size:14px;margin-top:10px;padding-left:20px;">
+        <li>自付額 ＝ 投保薪資 × 5.17% × 30% ×（1＋眷屬人數）</li>
+        <li>眷屬最多算 3 位；上限 <b>313,000</b>（遠高於勞保）</li>
+        <li>另有補充保費 2.11%（見 04 節）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot"></span>勞退新制：那個「6%」到底是誰出錢</h3>
+    <table class="tbl">
+      <colgroup><col style="width:34%"><col style="width:66%"></colgroup>
+      <tr><th>項目</th><th>說明</th></tr>
+      <tr><td>雇主強制提撥 6%</td><td>只要適用勞基法，公司依法每月提撥「月提繳工資」的 6% 進你的勞退個人專戶。<b class="hl">完全由公司負擔，不會從你薪水扣。</b>勞退月提繳工資上限 150,000 元。</td></tr>
+      <tr><td>勞工自願提撥 0–6%</td><td>你可選擇 0%~6%，從月薪裡扣，存進同一個專戶。<b class="ok">最大好處：自提金額可從「當年度薪資所得」扣除，直接少繳綜所稅！</b></td></tr>
+      <tr><td>領取方式</td><td>滿 60 歲即可請領。年資滿 15 年：按月領老年年金（終身）；未滿 15 年：一次領清本金＋投資收益。累積階段免稅，領取時按退職所得課稅（多數人幾乎免稅）。</td></tr>
+    </table>
+    <div class="fact"><span class="mark">✓</span><span>自提節稅範例：月提繳工資 5 萬、自提 6%＝每月扣 3,000，一年 36,000 全數減應稅所得；若你在 12% 級距，一年省 36,000 × 12% ＝ 4,320 元。稅率越高，節稅越有感。</span></div>
+  </div>
+
+  <div class="grid2">
+    <div class="mini-card">
+      <h4>適合自提 6%</h4>
+      <ul style="font-size:14px;margin-top:8px;padding-left:20px;">
+        <li>綜所稅級距在 12%、20% 以上，節稅效益明顯</li>
+        <li>工作穩定、現金流充裕、短期不用動用這筆錢</li>
+        <li>長期退休規劃，願意接受錢鎖到 60 歲</li>
+      </ul>
+    </div>
+    <div class="mini-card" style="background:var(--red-soft);">
+      <h4 style="color:var(--red);">不適合自提</h4>
+      <ul style="font-size:14px;margin-top:8px;padding-left:20px;">
+        <li>收入低、本來就不用繳綜所稅（無節稅效果，錢卻鎖住）</li>
+        <li>短期有買房、創業、還債等大筆現金需求（中途不能取出）</li>
+        <li>預計短期內離開台灣、放棄居留</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 03 二代健保 ===================== -->
+<section>
+  <div class="sec-head">
+    <span class="sec-num">03</span>
+    <div>
+      <div class="sec-title">二代健保：補充保險費 2.11%</div>
+      <div class="sec-sub">抓「薪水以外」的所得 · 就源扣繳、年度不結算、≠所得稅</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot"></span>它是什麼</h3>
+    <p>健保一般保費只以「投保薪資」計算，只抓得到薪水。二代健保新增 <b class="hl">補充保險費 2.11%</b>，用來課徵股利、利息、租金等薪水以外的所得，讓有金融／租賃收入的人也負擔健保財源。</p>
+    <div class="fact"><span class="mark">✓</span><span>發錢當下「就源扣繳」，直接扣走，不用等 5 月申報。</span></div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot"></span>六大會被扣的所得（單筆達門檻才扣）</h3>
+    <table class="tbl">
+      <colgroup><col style="width:52%"><col style="width:24%"><col style="width:24%"></colgroup>
+      <tr><th>所得類型</th><th>門檻（單筆）</th><th>費率</th></tr>
+      <tr><td>公司發放獎金：全年累計超過當月健保投保薪資 4 倍的部分</td><td>超過 4 倍才扣</td><td rowspan="6" style="text-align:center;vertical-align:middle;color:var(--red);font-weight:900;font-size:20px;">2.11%</td></tr>
+      <tr><td>非本公司的兼職薪資（外部接案打工）</td><td>≥ 29,500</td></tr>
+      <tr><td>執行業務收入（律師、會計師、講師稿費）</td><td>≥ 20,000</td></tr>
+      <tr><td><b class="hl">股利所得（現金股利、ETF 配息）</b></td><td>≥ 20,000</td></tr>
+      <tr><td><b class="hl">利息所得（定存利息、債息）</b></td><td>≥ 20,000</td></tr>
+      <tr><td>租金收入（出租房子）</td><td>≥ 20,000</td></tr>
+    </table>
+    <p style="font-size:14px;">單次給付上限 1,000 萬，超過部分不再課補充保費。</p>
+  </div>
+
+  <div class="grid2">
+    <div class="mini-card">
+      <h4>例：單筆股利 30,000 元</h4>
+      <div class="big">633 元</div>
+      <div class="cap">30,000 × 2.11%，券商發放時直接扣掉</div>
+    </div>
+    <div class="mini-card">
+      <h4>股票股利也要算</h4>
+      <div class="big">是</div>
+      <div class="cap">以股利總額（含可扣抵稅額）計算，不是看入帳現金</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot"></span>投資人必記：哪些「不扣」</h3>
+    <table class="tbl">
+      <colgroup><col style="width:34%"><col style="width:66%"></colgroup>
+      <tr><th>情形</th><th>說明</th></tr>
+      <tr><td>單筆股利／利息 &lt; 20,000</td><td class="ok">完全不扣補充保費（看單筆，非全年累計）</td></tr>
+      <tr><td>海外股利、海外利息</td><td class="ok">目前不課二代健保補充保費（但仍要注意海外所得、最低稅負）</td></tr>
+      <tr><td>股票資本利得（賣股價差）</td><td class="ok">完全不扣！只有「配息、利息」才課，賣股票賺錢不用扣補充保費</td></tr>
+      <tr><td>彩券中獎、保險給付、勞退退休金、年金</td><td class="ok">不屬於補充保費課徵範圍</td></tr>
+    </table>
+    <div class="myth"><span class="mark">✕</span><span>迷思：賣股票賺價差要扣二代健保 → 錯，只有股利、利息才課。</span></div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot"></span>三個關鍵迷思</h3>
+    <div class="myth"><span class="mark">✕</span><span>補充保費可以抵綜所稅 → 錯，它是健保費不是稅，不能抵稅。</span></div>
+    <div class="myth"><span class="mark">✕</span><span>股利被扣二代健保，5 月報稅會退 → 錯，補充保費年度不結算，扣了不退。</span></div>
+    <div class="myth"><span class="mark">✕</span><span>全年股利總額不到 2 萬就不扣 → 錯，看「單筆」金額，單筆超過就扣。</span></div>
+  </div>
+</section>
+
+<!-- PART3 -->
+
+<!-- ===================== 04 股利所得稅 ===================== -->
+<section>
+  <div class="sec-head">
+    <span class="sec-num">04</span>
+    <div>
+      <div class="sec-title">股利所得稅：兩套課稅方案</div>
+      <div class="sec-sub">與二代健保補充保費是兩回事，分開計算</div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="mini-card">
+      <h4>方案 A · 併入綜合所得</h4>
+      <p style="font-size:14px;margin-top:6px;">股利併入綜所稅，搭配「股利可扣抵稅額」減稅。<br><span class="cap">中低所得族群常用。</span></p>
+    </div>
+    <div class="mini-card">
+      <h4>方案 B · 分離課稅 28%</h4>
+      <p style="font-size:14px;margin-top:6px;">股利獨立分離，直接課 28%。<br><span class="cap">高所得族群常用。</span></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3><span class="dot"></span>同一筆股利，會被扣兩筆</h3>
+    <div class="flow">
+      <div class="fnode"><div class="n">券商發放股利</div><div class="d">現金或股票股利入帳</div></div>
+      <div class="farrow">→</div>
+      <div class="fnode"><div class="n">二代健保補充保費 2.11%</div><div class="d">健保費，就源扣繳，不退</div></div>
+      <div class="farrow">→</div>
+      <div class="fnode"><div class="n">所得稅扣繳</div><div class="d">併入綜所稅或分離 28%</div></div>
+    </div>
+    <div class="fact"><span class="mark">✓</span><span>兩筆分開扣、互不抵銷。補充保費是健保財源，所得稅是國稅，完全獨立。</span></div>
+  </div>
+</section>
+
+<!-- ===================== 05 整套串聯 ===================== -->
+<section>
+  <div class="sec-head">
+    <span class="sec-num">05</span>
+    <div>
+      <div class="sec-title">整套體系串起來：上班族 + 投資人</div>
+      <div class="sec-sub">一個人的收入，會同時碰到這幾套規則</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="flow">
+      <div class="fnode"><div class="n">① 月薪</div><div class="d">健保一般保費（按月投保薪資，含眷屬）＋勞保＋勞退雇主 6%</div></div>
+      <div class="farrow">→</div>
+      <div class="fnode"><div class="n">② 可選勞退自提 0–6%</div><div class="d">減少綜所稅應稅所得（節稅）</div></div>
+      <div class="farrow">→</div>
+      <div class="fnode"><div class="n">③ 獎金・股利・利息・租金</div><div class="d">單筆達門檻 → 另扣 2.11% 補充保費</div></div>
+      <div class="farrow">→</div>
+      <div class="fnode"><div class="n">④ 每年 5 月申報綜所稅</div><div class="d">薪資＋股利＋利息＋租金合併，多退少補</div></div>
+    </div>
+    <div class="fact"><span class="mark">✓</span><span>賣股票的價差：不課補充保費；國內股票資本利得目前也不課綜所稅。</span></div>
+  </div>
+</section>
+
+<!-- ===================== 06 常見迷思 ===================== -->
+<section>
+  <div class="sec-head">
+    <span class="sec-num">06</span>
+    <div>
+      <div class="sec-title">常見迷思一次澄清</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="myth"><span class="mark">✕</span><span>年薪破 100 萬，全部收入都課 12% → 錯，累進稅，只有超過 61 萬淨額的部分才 12%。</span></div>
+    <div class="myth"><span class="mark">✕</span><span>每月扣繳的稅就是今年要繳的稅 → 錯，是預繳，5 月申報多退少補。</span></div>
+    <div class="myth"><span class="mark">✕</span><span>勞保健保費屬於所得稅 → 錯，是社會保險；但健保費可列舉扣除。</span></div>
+    <div class="myth"><span class="mark">✕</span><span>勞退 6% 是從員工薪水扣 → 錯，雇主提撥的 6% 是公司出錢；只有「自提」才從你薪水扣。</span></div>
+    <div class="myth"><span class="mark">✕</span><span>賣股票賺價差要扣二代健保 → 錯，只有股利、利息才課補充保費。</span></div>
+    <div class="myth"><span class="mark">✕</span><span>補充保費可抵綜所稅 → 錯，是保費不是稅。</span></div>
+  </div>
+</section>
+
+<!-- ===================== 總結 ===================== -->
+<div class="summary-box">
+  <h2>一句話帶走</h2>
+  <ul>
+    <li><b>綜所稅是累進制</b>：只有超過門檻的部分才用較高稅率，不是全部所得跳稅率。</li>
+    <li><b>三個上限不同</b>：勞保 45,800、健保 313,000、勞退提撥 150,000。</li>
+    <li><b>勞退雇主 6% 是公司出錢</b>；你自提的 6% 才有節稅效果，且錢鎖到 60 歲。</li>
+    <li><b>二代健保補充保費 2.11%</b>：看單筆股利／利息是否 ≥ 2 萬；賣股價差不扣；扣了不退、不能抵稅。</li>
+    <li><b>健保費走列舉扣除</b>：若你用標準扣除額，就不能再額外扣勞健保費。</li>
+    <li><b>家戶申報</b>：夫妻原則合併申報、可分開計稅；扶養父母子女可大幅降稅。</li>
+  </ul>
+</div>
+
+<p class="note">本頁為 115 年度（2026 年）概況整理，適用一般受僱勞工；實際申報請以當年度財政部／衛福部公告為準。</p>
+
+</div>
+<script>
+// 自動將文字節點中的數字包成粗體（不影響已粗體/已有樣式的數值）
+(function(){
+  function boldNumbers(el){
+    var walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,{
+      acceptNode:function(n){
+        if(!n.data)return NodeFilter.FILTER_REJECT;
+        var p=n.parentNode;
+        if(!p||p.tagName==='SCRIPT'||p.tagName==='STYLE')return NodeFilter.FILTER_REJECT;
+        // 跳過已加粗或已有類的節點，避免重複
+        var cls=p.className||'';
+        if(/num|numb|big|range|rate/.test(cls))return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var nodes=[],n;
+    while(n=walker.nextNode())nodes.push(n);
+    nodes.forEach(function(textNode){
+      // 匹配純數字（含千分位、小數、百分比），且兩側非字元
+      var re=/(?<![\d.,%])\d{1,3}(?:,\d{3})*(?:\.\d+)?%?|(?<![\d.,%])\d+(?:\.\d+)?%?(?![\d.,%])/g;
+      var txt=textNode.data;
+      if(!re.test(txt))return;
+      re.lastIndex=0;
+      var frag=document.createDocumentFragment();
+      var last=0,m;
+      while((m=re.exec(txt))!==null){
+        if(m.index>last)frag.appendChild(document.createTextNode(txt.slice(last,m.index)));
+        var b=document.createElement('b');
+        b.className='numb';
+        b.textContent=m[0];
+        frag.appendChild(b);
+        last=m.index+m[0].length;
+      }
+      if(last<txt.length)frag.appendChild(document.createTextNode(txt.slice(last)));
+      textNode.parentNode.replaceChild(frag,textNode);
+    });
+  }
+  window.addEventListener('load',function(){boldNumbers(document.body);});
+})();
+</script>
+</body>
+</html>
